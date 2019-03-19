@@ -1,0 +1,31 @@
+<style>
+    #progress {
+        border-bottom: 2px solid black;
+        width: 0;
+        top: 0;
+        left: 0;
+        position: fixed;
+    }
+    body div{
+        word-wrap: break-word;
+    }
+</style>
+
+<body>
+    <div id="progress"></div>
+</body>
+
+
+<script>
+    //Create some content
+    let div = document.createElement('div');
+    let text = document.createTextNode("FuckFuckFuckFuckFuckFuckFuckFuckFuck".repeat(1000));
+    div.appendChild(text);
+    document.body.appendChild(div);
+    let bar = document.querySelector('#progress');
+    window.addEventListener('scroll', () => {
+        let max = document.body.scrollHeight - innerHeight;
+        console.log(max, pageYOffset);
+        bar.style.width = (pageYOffset / max) * 100 + '%';
+    })
+</script>

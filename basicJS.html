@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Basic JavaScript</title>
+	<style type="text/css">
+		body{
+			font-family: monospace;
+		}
+	</style>
+</head>
+<body>
+	<h1>Java Script, it's so easy!</h1>
+	Falsy value: 0, NaN, undefined, null, '' (empty string)<br>
+	Truthy value: 2, 'false', (all other things)<br><br>
+	Null represent no value<br>
+	var x = null;<br>
+	console.log(x) //null<br><br>
+	Undefined represent declared variable but not assign<br>
+	var x;<br>
+	console.log(x) //undefined<br><br>
+	Array in JavaScript is such strange<br>
+	arr = ['one', true, 3]<br>
+	when set arr[8] = 0, the array become ['one', true, 3, empty * 5, 0], so hard to get it<br>
+	Moreover, assign arr[-5] = 'buzz', it create a mapping in the array, it become:<br>
+	(9) ["one", true, 3, empty × 5, null, -5: "buzz"]<br><br>
+	Too tired to write all down, read the code<br>
+	<h2>Bye</h2>
+</body>
+
+<script type="text/javascript">
+	var age = 20;
+	console.log(age)
+	alert(age)
+
+	/*change of type*/
+	id = 30
+	console.log("id " + id)
+	id = "Cung la id nhung la chu";
+	console.log("chuyen sang string: ", id)
+	console.log("Infinity " +Infinity)
+	console.log(Number('2a56'))
+	console.log(Number('63'))
+	console.log(Number('cec'))
+
+	/*String*/
+	var string = "String are immutable";
+	console.log(string)
+	console.log(string[1])
+	string[1] = 'x';		//this line is not executed
+	console.log(string)
+	string = "Reassign the string"
+	console.log(string)
+
+	//concat string
+	firstName = "Ro"
+	lastName = "nal do"
+	fullName = firstName.concat(' ', lastName)
+	console.log(fullName)
+	var greeting = 'Hello ' + fullName
+	console.log(greeting)
+	console.log(greeting.toUpperCase())
+	console.log(greeting.toLowerCase())
+	console.log(greeting)
+	console.log('Length ' + greeting.length)
+
+	//null and undefined
+	var x = null;
+	console.log(x);
+	var y;
+	console.log(y);
+
+	//array
+	var arr = ['one', true, 3]
+	console.log(arr.length)
+	console.log(arr[4])
+	arr[8] = x;
+	arr[-5] = 'buzz'
+	console.log(arr)
+
+	//adding to array, push(): add to the end, unshift(): add to the begining
+	var new_array = ['wave', 'air blade', 'SH'];
+	console.log(new_array);
+	new_array.push('lead');
+	new_array.unshift('jupiter');
+	console.log(new_array);
+
+	//take out from the array, pop(): take out from the end, shift(): take out from the beginning
+	var lead = new_array.pop()
+	var jupiter = new_array.shift()
+	console.log('Last ', lead)
+	console.log('first ', jupiter)
+	console.log(new_array)
+
+	//object(it's origin of json, like python dict)
+	var person = {
+		name : 'Son Tung',
+		age : '2x',
+		job : ['ca si', 'dao si', 'sep'],
+		hits : {'lac troi' : 2016, 'chay ngay di': 2018, '...': '20xx'},
+	}
+	console.log(person.name)
+	console.log(person.job)
+	console.log(person.hits)
+	console.log(person.hits['chay ngay di'])
+
+	//we can add properties to the object
+	person.gender = 'Undefined'
+	person['location'] = 'Sky'
+	console.log(person)
+
+	//convert number and string
+	console.log("Statement 5 < '20' ", 5 < '20')
+	console.log("Statement 5 > 'chocopie' ", 5 > 'chocopie', "because 'chocopie' is NaN")
+	console.log("Statement 'zebra' > 'tiger' ", 'zebra' > 'tiger')
+
+	//compare object
+	var a = {age: 11}
+	var b = {age: 11}
+	console.log(a == b)
+	var x = a;
+	console.log(a == x)
+
+	//loop, like C
+	for(var i = 0; i < 4; i++){
+		console.log("Dmm")
+	}
+
+	//functions
+	function factorial(n){
+		var x = 1;
+		for(var i = 1; i <= n; i++){
+			x *= i;
+		}
+		return x;
+	}
+	console.log(factorial(5))
+
+	//forEach
+	function print(n){
+		console.log(n);
+	}
+	var arr = ['dog', 'cat', 'cau vang', 'cau banh']
+	arr.forEach(print)
+
+	//every
+	function isEven(n){
+		return n % 2 == 0;
+	}
+	function square(n){
+		return n * n;
+	}
+
+	arr = [1, 2, 3, 4, 5, 6]
+	console.log(arr.every(isEven))
+
+	//some
+	console.log(arr.some(isEven))
+
+	//map
+	var squares = arr.map(square); //[1, 4, 9, 16, 25, 36]
+	var doubles = arr.map(x => x * 2);
+	console.log(squares)
+
+	//argument pass by value
+	function tryToChange(x){
+		x = 3;
+	}
+	var y = 4;
+	tryToChange(y)
+	console.log(y); //4
+
+	//pass by reference
+	function changeMe(obj){
+		obj.age ++;
+	}
+	p = {age: 20}
+	changeMe(p)
+	console.log(p.age) // 21
+
+	//function is an object, so it has properties and we can assign variable to it
+	var add = function(a,b){
+		return a + b;
+	}
+	var sum = add(1,2)
+	console.log(sum); //3
+
+	var me = {
+		name : 'Tuan Anh',
+		age: 20,
+		greeting: function (){
+			return 'Hi, my name is Tuan Anh, hihi';
+		}
+	}
+	console.log(me.greeting())
+	console.log(me.__proto__)
+
+	//creating prototype, quite similar as class
+	function Person(name, age){		//create prototype
+		this.name = name;
+		this.age = age;
+		this.greeting = function (){
+			console.log('Hello, my name is ' + this.name + ". I've live for " + this.age + ' years')
+		}
+	}
+	var tuananh = new Person('Tuan Anh', 20);	//need 'new' keyword
+	console.log(tuananh)
+	tuananh.greeting()
+
+	//extending prototype
+	function Student(name, age, school){
+		this.__proto__ = new Person(name, age);
+		this.school = school;
+	}
+	var ngoctring = new Student('Ngoc Tring', 30, 'bikini');
+	ngoctring.greeting();
+	console.log(ngoctring.school);
+	console.log(ngoctring instanceof Person)
+
+	//in js, not only adding new properties for instance, we can add properties for prototype
+	//here 'person' is the prototype
+	var person = function(name, age, occupation){
+		this.name = name;
+		this.age = age;
+		this.occupation = occupation;
+	}
+
+	person.prototype.planet = 'Earth';
+	person.prototype.introduction = function (){
+		console.log('Hi, I am a ' + this.occupation);
+	}
+
+	var captain = new person('cap tan', 'unknown', 'captain');
+	console.log(captain.planet)
+	captain.introduction()
+
+	//string
+	var str = "word"
+	console.log(str[1]);
+	console.log(str.charAt(2))
+	var hello = ' hello '
+	console.log(hello.trim())
+	console.log('hello'.concat(' everybody'))
+	var str = 'Javscript is so easy';
+	console.log(str.startsWith('Jav'));
+	console.log(str.endsWith('y'));
+	console.log(str.includes('is'))
+	var jav = str.search('Jav');
+	console.log(jav)
+
+	//regular expression
+	//use search(//)
+	var str = 'Today is NOT tomorrow'
+	var pos = str.search(/not/);
+	console.log(pos)
+	var pos = str.search(/not/i);
+	console.log(pos);
+
+	//another way
+	console.log(/is/.test(str));
+
+	var str = 'abcxyz123'
+	var pos = str.search(/[23]/);
+	console.log(pos)
+	console.log(/[0-9]/.test(str))
+
+	//more power
+	var str = 'I have a dream, we are back to 17, 123a323';
+	var pos = str.search(/[0-9][a-z][0-9]/);
+	console.log(str[pos])
+
+	//not searching for! using ^ inside the []
+	var str = 'abcU123P';
+	console.log(str.search(/[^0-9a-z]/))
+
+	//quantifier
+	//"?" qualify the string, but optional
+	var str = 'a1b';
+	console.log(str.search(/[a-z][0-9]?[a-z]/));	//0
+	var str = 'abc';
+	console.log(str.search(/[a-z][0-9]?[a-z]/));	//0
+	var str = 'a12b';
+	console.log(str.search(/[a-z][0-9]?[a-z]/));	//-1
+
+	//"*" check for multiple characters
+	var str = 'a1234bcd'
+	console.log(/[a-z][0-9]*[a-z]/.test(str));	//true
+
+	//start with using ^ outside []
+	var str = 'Hay qua'
+	console.log(/^[a-z]/.test(str));	//false
+
+	//end with using $
+	console.log(/[a-z]$/.test(str));	//true
+
+	//combine
+	console.log(/^[a-z][0-9][a-z]$/.test('a1b'));		//true
+	console.log(/^[a-z][0-9][a-z]$/.test('a1b2c'));		//false
+	console.log(/^[a-z][0-9a-b]*[a-z]$/.test('a1b2c'));	//true
+
+
+
+</script>
+</html>

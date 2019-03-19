@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome box</title>
+</head>
+<body>
+	<input type="text" placeholder="Enter your name" id="name-input">
+	<h2>Hello <span id="welcome">dude</span></h2>
+</body>
+
+<script type="text/javascript">
+	function keyUpHandler(){
+		name = document.getElementById('name-input').value;
+		welcomeSpan = document.getElementById('welcome');
+		welcomeSpan.innerHTML = name;
+		welcomeSpan.style.color = 'cyan';
+		welcomeSpan.style.textTransform = 'capitalize';
+	}
+
+	var inputField = document.getElementById('name-input');
+	inputField.addEventListener('keyup', keyUpHandler);
+</script>
+</html>

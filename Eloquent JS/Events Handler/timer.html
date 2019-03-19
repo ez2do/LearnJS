@@ -1,0 +1,19 @@
+<script>
+    let bombTimer = setTimeout(() => {
+        console.log("Boom");
+    }, 1000);
+    if(Math.random() < 0.5){
+        console.log("Defused");
+        clearTimeout(bombTimer);
+    }
+
+    let ticks = 0;
+    let clock = setInterval(() => {
+        ticks++;
+        console.log("Tick");
+        if(ticks == 10){
+            clearInterval(clock);
+            console.log("Stop");
+        }
+    }, 200);
+</script>

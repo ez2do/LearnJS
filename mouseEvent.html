@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mouse Event Listener</title>
+</head>
+<body>
+	<h1 id="mouse-area">Di chuot vao de thay dieu ki dieu</h1>
+	<h1 class="message"></h1>
+</body>
+
+<script type="text/javascript">
+	function mouseOverHandler(){
+		var messageDivs = document.getElementsByClassName('message');
+		for(var i = 0; i < messageDivs.length; i++){
+			messageDivs[i].innerHTML = "ahihi";
+			messageDivs[i].style.color = 'blue';
+		}
+	}
+
+	function mouseOutHandler(){
+		var messageDivs = document.getElementsByClassName('message');
+		for(var i = 0; i < messageDivs.length; i++){
+			messageDivs[i].innerHTML = 'do ngok';
+			messageDivs[i].style.color = 'red';
+		}
+	}
+
+	var mouseField = document.getElementById('mouse-area');
+	mouseField.addEventListener('mouseover', mouseOverHandler);
+	mouseField.addEventListener('mouseout', mouseOutHandler);
+</script>
+</html>

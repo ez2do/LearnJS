@@ -1,0 +1,54 @@
+<body>
+
+</body>
+
+<style>
+    body {
+        height: 100%;
+        background: beige;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: blue;
+        position: absolute;
+    }
+</style>
+
+<script>
+/*     window.addEventListener("mousedown", event => {
+        if(event.type == "mousedown"){
+            let dot = document.createElement("div");
+            dot.className = "dot";
+            dot.style.left = (event.pageX - 4) + 'px';
+            dot.style.top = (event.pageY - 4) + 'px';
+            document.body.appendChild(dot);
+        }
+    }) */
+    window.addEventListener("mousedown", event => {
+        if(event.buttons == 1){     /* left click */
+            let lastX = event.clientX;
+            window.addEventListener("mousemove", drag);
+            event.preventDefault();
+        }
+    })
+
+    function drag(event){
+        if(event.buttons == 0){
+            window.removeEventListener("mousemove", drag);
+        }
+        else{
+            makeDot(event);
+        }
+    }
+
+    function makeDot(event){
+        let dot = document.createElement('div');
+        dot.className = 'dot';
+        dot.style.left = (event.pageX - 4) + 'px';
+        dot.style.top = (event.pageY - 4) + 'px';
+        document.body.appendChild(dot);
+    }
+</script>

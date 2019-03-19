@@ -1,0 +1,10 @@
+import module
+EventEmitter
+read line
+CRUD file with fs
+    - be careful: node run each function asynchronous
+CRUD with directory
+    - if rmdir an unempty directory => error
+read and write stream
+compress and decompress stream
+    

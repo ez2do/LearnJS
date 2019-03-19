@@ -1,0 +1,31 @@
+<body></body>
+<style>
+    .dot{
+        width: 8px;
+        height: 8px;
+        background-color: black;
+        border-radius: 100%;
+        position: absolute;
+        z-index: 1000;
+    }
+</style>
+
+<script>
+    function makeDot(event){
+        
+        return dot;
+    }
+
+    let dotQueue = [];
+    window.addEventListener('mousemove', (event) => {
+        let dot = document.createElement('div');
+        dot.className = 'dot';
+        dot.style.top = (event.pageY - 4) + 'px';
+        dot.style.left = (event.pageX - 4) + 'px';
+        document.body.appendChild(dot);
+
+        setTimeout(() => {
+            document.body.removeChild(dot);
+        }, 100);
+    })
+</script>

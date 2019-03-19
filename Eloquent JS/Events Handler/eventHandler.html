@@ -1,0 +1,46 @@
+<button>Click me</button>
+<p>No effect</p>
+<button id="#2">Clicking</button>
+<p>The button above can remove even listener</p>
+<div>Click any way you want</div>
+<p>Need to search more about event object</p>
+<div class="outer">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFGTySBPTUPudWxXNEuoo54G1a-W0QgOkFTtSCDUC-M5Fuwyn7">
+    <button class="inner">Click me don't affect the outside div</button>
+</div>
+<div class="change-color">Press r to change to red</div>
+<script>
+    document.querySelector('button').addEventListener("mouseenter", () => {
+        alert("hihi");
+    });
+    document.getElementById('#2').addEventListener("mouseover", function once(){
+        alert("it's just happen once");
+        this.removeEventListener('mouseover', once);
+    });
+    theDiv = document.querySelector("div");
+    console.log(theDiv);
+    theDiv.addEventListener("mouseleave", event => {
+        console.log(event);
+    });
+
+    document.getElementsByClassName("outer")[0].addEventListener("click", () => {
+        console.log("Out");
+    });
+    document.getElementsByClassName("inner")[0].addEventListener("click", event => {
+        console.log(event);
+        console.log("Inner");
+        if(event.button == 0) event.stopPropagation();
+    });
+
+    /* Change color */
+    window.addEventListener("keydown", event => {
+        if(event.key == "r"){
+            document.getElementsByClassName("change-color")[0].style.background = "red";
+        }
+    });
+    window.addEventListener("keyup", event => {
+        if(event.key == "r"){
+            document.getElementsByClassName("change-color")[0].style.background = "";
+        }
+    })
+</script>

@@ -1,0 +1,36 @@
+<!-- Laptop don't have event.touches property, it'll not run anyway :)) -->
+<style>
+    .dot {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: red solid 1px;
+        display: block;
+    }
+</style>
+<p>Touch the screen</p>
+<script>
+    window.addEventListener("click", update);
+    window.addEventListener("touchmove", update);
+    window.addEventListener("touchend", update);
+
+    function update(event) {
+        console.log(event);
+        for (let dot of Array.from(document.querySelectorAll("dot"))) {
+            dot.remove();
+        }
+        for (let i = 0; i < event.touches.length; i++) {
+            let {pageX, pageY} = event.touches[i];
+            makeDot(pageX, pageY);
+        }
+    }
+
+    function makeDot(x, y){
+        let dot = document.createElement('div');
+        dot.className = 'dot';
+        dot.style.top = (x - 50) + 'px';
+        dot.style.left = (y - 50) + 'px';
+        document.appendChild(dot);
+    }
+</script>

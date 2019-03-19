@@ -1,0 +1,19 @@
+<p>Name: <input type="text" data-help="Name"></p>
+<p>Age:  <input type="text" data-help="Age"></p>
+<p id="help"></p>
+
+<script>
+    let help = document.querySelector("#help");
+    let fields = document.getElementsByTagName("input");    //return a list
+    for(let field of fields){
+        field.addEventListener("focus", event => {
+            console.log(this);
+            console.log(event);
+            let text = event.target.getAttribute("data-help");
+            help.textContent = text;
+        });
+        field.addEventListener("blur", () => {
+            help.textContent = "";
+        })
+    }
+</script>

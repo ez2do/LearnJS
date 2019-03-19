@@ -1,0 +1,39 @@
+<div class="container">
+    <div id="balloon">🎈</div>
+    <a href="https://laballoons.com/">laballoons</a>
+</div>
+
+<style>
+    .container{
+        width: 100%;
+        height: 150%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #balloon{
+        font-size: 10px;
+    }
+</style>
+
+<script>
+    let balloon = document.querySelector('#balloon');
+    //The balloon grow when press ArrowUp, shrink when press ArrowDown
+    window.addEventListener("keydown", function resizeBalloon(event){
+        event.preventDefault();     //prevent default scroll by ArrowUp and ArrowDown
+        current_size = window.getComputedStyle(balloon, null).getPropertyValue('font-size');
+        if(event.key == 'ArrowUp'){
+            balloon.style.fontSize = (parseFloat(current_size) + 5) + 'px';
+        }
+        else if(event.key == 'ArrowDown'){
+            balloon.style.fontSize = (parseFloat(current_size) - 5) + 'px';
+        }
+        if(parseFloat(current_size) > 230){
+            balloon.textContent = '💥';
+            console.log("Done");
+            window.removeEventListener('keydown', resizeBalloon);
+        }
+    });
+
+
+</script>

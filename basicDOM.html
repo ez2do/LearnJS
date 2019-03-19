@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Basic DOM</title>
+</head>
+<body>
+	<div class="date-time">The current time is <span id="time"></span></div>
+	<div class="visit">You have visited <span id="visit-time"></span> times</div>
+	<div class="last-vistied">Your last visited was at <span id="lastVisited"></span></div>
+</body>
+
+<script>
+	var timeField = document.getElementById('time');
+	timeField.innerHTML = new Date();
+
+	var timeVisited = 0;
+	var lastVisited = 'never';
+
+	if(localStorage.timeVisited){
+		timeVisited = parseInt(localStorage.timeVisited);
+	}
+	visitedField = document.getElementById('visit-time');
+	visitedField.innerHTML = timeVisited;
+
+	timeVisited++;
+	localStorage.setItem('timeVisited', timeVisited);
+	visitedField.style.fontSize++;
+
+	if(localStorage.timeVisited > 10)
+		visitedField.style.color = 'red';
+
+	var lastVisitedField = document.getElementById('lastVisited');
+	if(localStorage.lastVisited){
+		//get the last visited time
+		lastVisited = localStorage.lastVisited;
+	}
+	lastVisitedField.innerHTML = JSON.parse(lastVisited);
+	//set last visited for the next time
+	localStorage.lastVisited = JSON.stringify(new Date());
+
+</script>
+</html>

@@ -1,0 +1,17 @@
+<textarea placeholder="Type somethings here"></textarea>
+<div></div>
+<script>
+    let type;
+    document.querySelector("textarea").addEventListener("input", () => {
+        clearTimeout(type);
+        type = setTimeout(() => {
+            console.log("Typed");
+        }, 500);
+    })
+
+    window.addEventListener("mousemove", event => {
+        setTimeout(() => {
+            document.querySelector('div').textContent = `Mouse is at ${event.pageX} and ${event.pageY}`;
+        }, 250);
+    })
+</script>

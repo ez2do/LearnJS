@@ -1,0 +1,5 @@
+4 important parts of component:
+	properties
+	state variable
+	render function
+	callback function(event handler)

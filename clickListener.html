@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Click handler</title>
+</head>
+<body>
+	<button id="clickMe">Click Me</button><br><br>
+	<div>You've click me <span id="clickCount">0 times</span></div>
+</body>
+
+<script type="text/javascript">
+	var click = 0;
+	function clickHandler(){
+		click++;
+		var clickSpan = document.getElementById('clickCount');
+		if(click == 1)
+			clickSpan.innerHTML = "once.";
+		else
+			clickSpan.innerHTML = click + ' times.';
+	}
+
+	var button = document.getElementById('clickMe');
+	button.addEventListener('click', clickHandler);
+</script>
+</html>
