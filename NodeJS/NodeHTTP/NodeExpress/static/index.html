@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Hacker Site</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="./main.css">
+</head>
+
+<body>
+	<header class="header">
+		<div class="header__inner">
+			<img class="header__logo" src="/images/logo-HL-TR-200.png" alt="hacker logo"
+				srcset="images/3a55e2a8a96d56441938fc4a79276c96.png 500w">
+			<section class="my__info">
+				<h1 class="my__name">TRAN TUAN ANH</h1>
+				<h2 class="my__job">Hacker</h2>
+			</section>
+		</div>
+	</header>
+
+	<main>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<form action='/' method='POST' id='form'>
+						<div class="form-group">
+							<label for="email">Email address</label>
+							<input type="email" class="form-control" name="email">
+						</div>
+						<div class="form-group">
+							<label for="password">Password</label>
+							<input type="password" class="form-control" name="password">
+						</div>
+						<button class="btn btn-default">Submit</button>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<img class="hacking" src="./images/Hackerpic-1080x616.jpg" alt="Hacking man"
+				srcset="images/Hacking.jpeg 500w, images/Hackerpic-1080x616.jpg 1000w">
+			<figcaption class="hacker__quote">Give a man a truth and he will think for a day. Teach a man to reason he
+				will
+				think for a lifetime!</figcaption>
+			<div class="hacker-typer">
+				<iframe id="hack-area" src="http://hackertyper.com/"></iframe>
+			</div>
+			<h2 class="featured__work">Featured Work</h2>
+			<ul>
+				<li class="item">
+					<figure class="top__hacker">
+						<img class="top__hacker__image" src="images/hacker_small.jpg" alt="top 10 hackers"
+							srcset="images/hacker_medium.jpg 500w, images/hacker.jpg 1000w">
+						<figcaption>Top Hacker</figcaption>
+					</figure>
+				</li>
+				<li class="item">
+					<figure class="hack__wifi">
+						<img class="hack__wifi__image" src="images/as_small.jpg" alt="hack wifi"
+							srcset="images/as.jpg 1000w">
+						<figcaption>Hack Wifi</figcaption>
+					</figure>
+				</li>
+				<li class="item">
+					<figure class="rip__fb">
+						<img class="rip__fb__image" src="images/rip-facebook_small.jpg" alt="rip nick facebook"
+							srcset="images/rip-facebook_medium.jpg 500w, images/rip-facebook.jpg 1000w">
+						<figcaption>Rip nick Facebook</figcaption>
+				</li>
+			</ul>
+		</div>
+	</main>
+</body>
+
+<!-- jquery -->
+<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	crossorigin="anonymous"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+	crossorigin="anonymous"></script>
+
+<!-- my script -->
+<script>
+	$(document).ready(() => {
+		$('#form').submit((e) => {
+			e.preventDefault();
+			$.ajax({
+				url: '/',
+				type: 'post',
+				contentType: 'application/json',
+				//stringify: convert js obj to json string
+				//serializeArray: create an array of obj by serialize form values
+				data : JSON.stringify($('#form').serializeArray()),
+				success : (response) => {
+					console.log('successfully got response');
+					console.log(response);
+				}
+			})
+		})
+	})
+</script>
+
+</html>
